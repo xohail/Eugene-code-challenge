@@ -1,66 +1,62 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Senior Laravel API Developer Code Challenge
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Introduction
 
-## About Laravel
+This code challenge aims to evaluate your skills in API development, database design, and the Laravel framework. The provided Laravel application comprises two main entities: Doctors and Tests. The current data structure has redundant information about doctors and/or clinics across multiple rows. Your task is to normalize the data by splitting it into two tables: a doctors table containing information about individual doctors, and a clinics table containing information about individual clinics. Note that multiple doctors can work at the same clinic and a clinic can contain multiple doctors.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Additionally, you need to modify the user interface to match the new database structure.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Lastly, the doctor and clinic information is inconsistent due to multiple users' input over time. Develop tools to merge duplicate doctors and clinics.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Existing Application
 
-## Learning Laravel
+The current application includes:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. A Laravel project named "code-challenge."
+2. A SQLite database with preseeded Doctors and Tasks.
+3. Controllers, views, form requests, and routes for Doctors and Tests.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Follow these steps to run the application:
 
-## Laravel Sponsors
+1. Ensure PHP, Composer, and the SQLite extension are installed on your system.
+2. Clone this repository. __Do not fork it!__
+3. Run `composer install` to install required dependencies.
+4. Run `php artisan serve` to start the Laravel development server.
+5. Run `yarn dev` to run Vite and compile Tailwind resources.
+6. Visit the application in your browser at http://127.0.0.1:8000/doctors or http://127.0.0.1:8000/tests.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Code Challenge
 
-### Premium Partners
+Make an update to the application by completing the following tasks:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+1. Normalize the `doctors` table by splitting it into two tables:
+   - A table containing information about doctors.
+   - A table containing information about clinics.
+2. Maintain the relationship between the new tables and tests, ensuring the tests index displays the same information after your changes.
+3. Create a user interface to perform the following actions:
+   - Merge duplicate doctors.
+   - Merge duplicate clinics.
 
-## Contributing
+### Assumptions and Deviations
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. The .env file is committed to Git. Under normal circumstances, this would be avoided.
+2. The authentication system can be ignored.
 
-## Code of Conduct
+### Guidelines
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. Limit your work to 4 hours.
+2. Document any assumptions you make.
+3. You may use any libraries you prefer, but be prepared to justify your choices.
+4. Focus on ease of use rather than aesthetics, as this is not a design challenge.
 
-## Security Vulnerabilities
+### Bonus Points (Complete only if time permits within the 4-hour period)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Implement any additional improvements you deem necessary.
+2. Develop a page that recommends likely duplicates and allows users to merge them.
+3. Break down the clinic_address into multiple columns and geocode the location.
 
-## License
+Submit your solution, along with any additional documentation or explanations, to danny@eugenelabs.com.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Good luck and enjoy the challenge!
