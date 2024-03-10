@@ -13,13 +13,10 @@ class DoctorController extends Controller
 {
     public function index()
     {
-//        $doctors = Doctor::withCount('tests')->orderBy('updated_at', 'desc')->paginate(100);
         $doctors = Doctor::with(['specialty', 'clinics'])
             ->withCount('tests')
             ->orderBy('updated_at', 'desc')
             ->paginate(100);
-
-//        dd($doctors);
 
         return view('doctors.index', compact('doctors'));
     }
@@ -49,17 +46,10 @@ class DoctorController extends Controller
 
     public function edit(Doctor $doctor)
     {
-//        $doctor->load('clinics', 'specialty');
-//        return view('doctors.edit', compact('doctor'));
         $specialties = Specialty::all();
         $clinics = Clinics::all();
 
         $doctor->load('specialty', 'clinics');
-
-//        dd($doctor);
-//        dd($specialties);
-//        dd($clinics);
-
         return view('doctors.edit', compact('doctor', 'specialties', 'clinics'));
     }
 

@@ -35,13 +35,11 @@
                         <td class="border px-4 py-2">{{ $doctor->name }}</td>
 
                         @foreach ($doctor->specialty as $specialty)
-{{--                            <li>{{ $specialty->name }}</li>--}}
                             <td class="border px-4 py-2">{{ $specialty->name }}</td>
                         @endforeach
 
 
                         @foreach ($doctor->clinics as $clinic)
-{{--                            <li>{{ $clinic->name }} - {{ $clinic->address }}</li>--}}
                             <td class="border px-4 py-2">{{ $clinic->name }}</td>
                             <td class="border px-4 py-2">{{ $clinic->address }}</td>
                         @endforeach

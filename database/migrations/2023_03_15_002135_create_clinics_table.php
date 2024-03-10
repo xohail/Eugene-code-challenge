@@ -12,9 +12,6 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('address')->default('');
-//            $table->string('specialty')->nullable();
-//            $table->string('clinic_name')->nullable();
-//            $table->string('clinic_address')->nullable();
             $table->timestamps();
         });
     }

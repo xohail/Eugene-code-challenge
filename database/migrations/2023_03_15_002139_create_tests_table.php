@@ -15,7 +15,6 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedBigInteger('referring_doctor_id')->nullable();
             $table->foreign('referring_doctor_id')->references('id')->on('doctors')->onDelete('cascade');
-//            $table->string('name');
             $table->timestamps();
         });
     }

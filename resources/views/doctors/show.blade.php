@@ -16,14 +16,12 @@
     <div class="mb-4">
 
         @foreach ($doctor->specialty as $specialty)
-{{--            <li>{{ $specialty->name }}</li>--}}
             <strong>Specialty:</strong> {{ $specialty->name }}
         @endforeach
 
     </div>
 
     @foreach ($doctor->clinics as $clinic)
-{{--        <li>{{ $clinic->name }} - {{ $clinic->address }}</li>--}}
         <div class="mb-4">
             <strong>Clinic Name:</strong> {{ $clinic->name }}
         </div>
