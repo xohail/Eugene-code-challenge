@@ -33,9 +33,19 @@
                         <td class="border px-4 py-2">{{ $doctor->id }}</td>
                         <td class="border px-4 py-2">{{ $doctor->updated_at->format('Y-m-d H:i:s') }}</td>
                         <td class="border px-4 py-2">{{ $doctor->name }}</td>
-                        <td class="border px-4 py-2">{{ $doctor->specialty }}</td>
-                        <td class="border px-4 py-2">{{ $doctor->clinic_name }}</td>
-                        <td class="border px-4 py-2">{{ $doctor->clinic_address }}</td>
+
+                        @foreach ($doctor->specialty as $specialty)
+{{--                            <li>{{ $specialty->name }}</li>--}}
+                            <td class="border px-4 py-2">{{ $specialty->name }}</td>
+                        @endforeach
+
+
+                        @foreach ($doctor->clinics as $clinic)
+{{--                            <li>{{ $clinic->name }} - {{ $clinic->address }}</li>--}}
+                            <td class="border px-4 py-2">{{ $clinic->name }}</td>
+                            <td class="border px-4 py-2">{{ $clinic->address }}</td>
+                        @endforeach
+
                         <td class="border px-4 py-2">{{ $doctor->tests_count }}</td>
                         <td class="border px-4 py-2">
                             <a href="{{ route('doctors.show', $doctor) }}" class="text-blue-500">View</a>

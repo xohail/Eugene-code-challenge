@@ -14,4 +14,9 @@ class Test extends Model
     {
         return $this->belongsTo(Doctor::class, 'referring_doctor_id');
     }
+
+    public function testName()
+    {
+        return $this->belongsTo(TestName::class, 'test_name_id');
+    }
 }

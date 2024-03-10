@@ -14,4 +14,14 @@ class Doctor extends Model
     {
         return $this->hasMany(Test::class, 'referring_doctor_id');
     }
+
+    public function clinics()
+    {
+        return $this->belongsToMany(Clinics::class);
+    }
+
+    public function specialty()
+    {
+        return $this->belongsToMany(Specialty::class);
+    }
 }

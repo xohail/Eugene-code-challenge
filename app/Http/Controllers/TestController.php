@@ -9,7 +9,7 @@ class TestController extends Controller
 {
     public function index()
     {
-        $tests = Test::with('referringDoctor')->orderBy('updated_at', 'desc')->paginate(100);
+        $tests = Test::with(['referringDoctor', 'testName'])->orderBy('updated_at', 'desc')->paginate(100);
 
         return view('tests.index', compact('tests'));
     }

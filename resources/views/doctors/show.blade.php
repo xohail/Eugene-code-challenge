@@ -14,14 +14,24 @@
         <strong>Name:</strong> {{ $doctor->name }}
     </div>
     <div class="mb-4">
-        <strong>Specialty:</strong> {{ $doctor->specialty }}
+
+        @foreach ($doctor->specialty as $specialty)
+{{--            <li>{{ $specialty->name }}</li>--}}
+            <strong>Specialty:</strong> {{ $specialty->name }}
+        @endforeach
+
     </div>
-    <div class="mb-4">
-        <strong>Clinic Name:</strong> {{ $doctor->clinic_name }}
-    </div>
-    <div class="mb-4">
-        <strong>Clinic Address:</strong> {{ $doctor->clinic_address }}
-    </div>
+
+    @foreach ($doctor->clinics as $clinic)
+{{--        <li>{{ $clinic->name }} - {{ $clinic->address }}</li>--}}
+        <div class="mb-4">
+            <strong>Clinic Name:</strong> {{ $clinic->name }}
+        </div>
+        <div class="mb-4">
+            <strong>Clinic Address:</strong> {{ $clinic->address }}
+        </div>
+    @endforeach
+
 
     <h2 class="text-xl font-bold mb-4">Related Tests</h2>
     <table class="bg-white w-full border-collapse">

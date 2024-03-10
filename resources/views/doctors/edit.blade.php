@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mx-auto px-4">
-    
+
     <div class="flex items-center justify-between mb-4">
         <h1 class="text-2xl font-bold">Edit Doctor: {{ $doctor->name }}</h1>
     </div>
@@ -21,7 +21,14 @@
 
         <div class="mb-4">
             <label for="specialty" class="block mb-2">Specialty</label>
-            <input type="text" name="specialty" id="specialty" value="{{ old('specialty', $doctor->specialty) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <select name="specialties[]" id="specialties" multiple>
+                @foreach ($specialties as $specialty)
+                    <option value="{{ $specialty->id }}" {{ $doctor->specialty->contains($specialty->id) ? 'selected' : '' }} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        {{ $specialty->name }}
+                    </option>
+                @endforeach
+            </select>
+{{--            <input type="text" name="specialty" id="specialty" value="{{ old('specialty', $doctor->specialty) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">--}}
             @error('specialty')
                 <p class="text-red-500 mt-1">{{ $message }}</p>
             @enderror
@@ -29,19 +36,26 @@
 
         <div class="mb-4">
             <label for="clinic_name" class="block mb-2">Clinic Name</label>
-            <input type="text" name="clinic_name" id="clinic_name" value="{{ old('clinic_name', $doctor->clinic_name) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+{{--            <input type="text" name="clinic_name" id="clinic_name" value="{{ old('clinic_name', $doctor->clinic_name) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">--}}
+            <select name="clinics[]" id="clinics" multiple>
+                @foreach ($clinics as $clinic)
+                    <option value="{{ $clinic->id }}" {{ $doctor->clinics->contains($clinic->id) ? 'selected' : '' }} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        {{ $clinic->name }} - {{ $clinic->address }}
+                    </option>
+                @endforeach
+            </select>
             @error('clinic_name')
                 <p class="text-red-500 mt-1">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="mb-4">
-            <label for="clinic_address" class="block mb-2">Clinic Address</label>
-            <input type="text" name="clinic_address" id="clinic_address" value="{{ old('clinic_address', $doctor->clinic_address) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-            @error('clinic_address')
-                <p class="text-red-500 mt-1">{{ $message }}</p>
-            @enderror
-        </div>
+{{--        <div class="mb-4">--}}
+{{--            <label for="clinic_address" class="block mb-2">Clinic Address</label>--}}
+{{--            <input type="text" name="clinic_address" id="clinic_address" value="{{ old('clinic_address', $doctor->clinic_address) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">--}}
+{{--            @error('clinic_address')--}}
+{{--                <p class="text-red-500 mt-1">{{ $message }}</p>--}}
+{{--            @enderror--}}
+{{--        </div>--}}
 
         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Update Doctor</button>
     </form>

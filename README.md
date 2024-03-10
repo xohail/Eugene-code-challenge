@@ -21,6 +21,7 @@ The current application includes:
 Follow these steps to run the application:
 
 1. Ensure PHP, Composer, and the SQLite extension are installed on your system.
+2. Ensure vite is installed
 2. Clone this repository. __Do not fork it!__
 3. Run `composer install` to install required dependencies.
 4. Run `php artisan serve` to start the Laravel development server.
