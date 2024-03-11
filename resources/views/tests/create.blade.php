@@ -8,8 +8,16 @@
         @csrf
 
         <div class="mb-4">
-            <label for="name" class="block mb-2">Name</label>
-            <input type="text" name="name" id="name" value="{{ old('name') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <label for="test_name_id" class="block mb-2">Name</label>
+            <select name="test_name_id" id="test_name_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <option value="">Select Test</option>
+                @foreach($tests as $test)
+{{--                    @foreach($doctor->clinics as $clinic)--}}
+                    <option value="{{ $test->id }}" {{ old('test_name_id') == $test->id ? 'selected' : '' }}>{{ $test->name }} </option>
+{{--                    @endforeach--}}
+                @endforeach
+            </select>
+{{--            <input type="text" name="name" id="name" value="{{ old('name') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">--}}
             @error('name')
                 <p class="text-red-500 mt-1">{{ $message }}</p>
             @enderror
@@ -28,7 +36,9 @@
             <select name="referring_doctor_id" id="referring_doctor_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 <option value="">Select Doctor</option>
                 @foreach($doctors as $doctor)
-                    <option value="{{ $doctor->id }}" {{ old('referring_doctor_id') == $doctor->id ? 'selected' : '' }}>{{ $doctor->name }} ({{ $doctor->clinic_name }})</option>
+                    @foreach($doctor->clinics as $clinic)
+                        <option value="{{ $doctor->id }}_{{ $clinic->id }}" {{ old('referring_doctor_id') == $doctor->id ? 'selected' : '' }}>{{ $doctor->name }} ({{ $clinic->name }})</option>
+                    @endforeach
                 @endforeach
             </select>
             @error('referring_doctor_id')

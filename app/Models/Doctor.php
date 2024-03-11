@@ -9,6 +9,7 @@ class Doctor extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $table = 'doctors'; // because the metadata was not getting clear no matter what
 
     public function tests()
     {

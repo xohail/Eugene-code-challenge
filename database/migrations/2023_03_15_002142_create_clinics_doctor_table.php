@@ -11,9 +11,9 @@ return new class extends Migration
         Schema::create('clinics_doctor', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('doctor_id');
-            $table->unsignedBigInteger('clinic_id');
+            $table->unsignedBigInteger('clinics_id');
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
-            $table->foreign('clinic_id')->references('id')->on('clinics')->onDelete('cascade');
+            $table->foreign('clinics_id')->references('id')->on('clinics')->onDelete('cascade');
             $table->timestamps();
         });
     }

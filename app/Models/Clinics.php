@@ -12,6 +12,8 @@ class Clinics extends Model
 
     protected $guarded = [];
 
+    protected $table = 'clinics'; // because the metadata was not getting clear no matter what
+
     public function doctors(): BelongsToMany
     {
         return $this->belongsToMany(Doctor::class);

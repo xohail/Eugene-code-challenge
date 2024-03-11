@@ -10,6 +10,8 @@ class Test extends Model
     use HasFactory;
     protected $guarded = [];
 
+    protected $table = 'tests'; // because the metadata was not getting clear no matter what
+
     public function referringDoctor()
     {
         return $this->belongsTo(Doctor::class, 'referring_doctor_id');
@@ -18,5 +20,10 @@ class Test extends Model
     public function testName()
     {
         return $this->belongsTo(TestName::class, 'test_name_id');
+    }
+
+    public function referringDoctorClinic()
+    {
+        return $this->belongsTo(Clinics::class, 'referring_doctor_clinic_id');
     }
 }
