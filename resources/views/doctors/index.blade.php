@@ -21,8 +21,8 @@
                     <th class="border px-4 py-2">Updated</th>
                     <th class="border px-4 py-2">Name</th>
                     <th class="border px-4 py-2">Specialty</th>
-                    <th class="border px-4 py-2">Clinic Name</th>
-                    <th class="border px-4 py-2">Clinic Address</th>
+                    <th class="border px-4 py-2">Clinic Name - Clinic Address</th>
+{{--                    <th class="border px-4 py-2">Clinic Address</th>--}}
                     <th class="border px-4 py-2"># Tests</th>
                     <th class="border px-4 py-2">Actions</th>
                 </tr>
@@ -34,15 +34,28 @@
                         <td class="border px-4 py-2">{{ $doctor->updated_at->format('Y-m-d H:i:s') }}</td>
                         <td class="border px-4 py-2">{{ $doctor->name }}</td>
 
-                        @foreach ($doctor->specialty as $specialty)
-                            <td class="border px-4 py-2">{{ $specialty->name }}</td>
-                        @endforeach
+{{--                        @if ($doctor->specialty)--}}
+                        @if ($doctor->specialty->isNotEmpty() && count($doctor->specialty) > 0)
+                            <td class="border px-4 py-2">
+                                @foreach ($doctor->specialty as $specialty)
+                                    {{ $specialty->name }}
+                                @endforeach
+                            </td>
+                        @else
+                            <td class="border px-4 py-2"></td>
+                        @endif
 
+                        @if ($doctor->clinics->isNotEmpty() && count($doctor->clinics) > 0)
+                            <td class="border px-4 py-2">
+                                @foreach ($doctor->clinics as $clinic)
+                                    {{ $clinic->name }} - {{ $clinic->address }}
+    {{--                                <td class="border px-4 py-2">{{ $clinic->address }}</td>--}}
+                                @endforeach
+                            </td>
+                        @else
+                            <td class="border px-4 py-2"></td>
+                        @endif
 
-                        @foreach ($doctor->clinics as $clinic)
-                            <td class="border px-4 py-2">{{ $clinic->name }}</td>
-                            <td class="border px-4 py-2">{{ $clinic->address }}</td>
-                        @endforeach
 
                         <td class="border px-4 py-2">{{ $doctor->tests_count }}</td>
                         <td class="border px-4 py-2">

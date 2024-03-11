@@ -15,20 +15,25 @@
     </div>
     <div class="mb-4">
 
-        @foreach ($doctor->specialty as $specialty)
-            <strong>Specialty:</strong> {{ $specialty->name }}
+        <strong>Specialty:</strong>
+        @foreach ($doctor->specialty as $key => $specialty)
+            {{ $specialty->name }}
+            @if (!$loop->last)
+                ,
+            @endif
         @endforeach
 
     </div>
 
-    @foreach ($doctor->clinics as $clinic)
-        <div class="mb-4">
-            <strong>Clinic Name:</strong> {{ $clinic->name }}
-        </div>
-        <div class="mb-4">
-            <strong>Clinic Address:</strong> {{ $clinic->address }}
-        </div>
-    @endforeach
+    <div class="mb-4">
+        <strong>Clinic Name - Clinic Address:</strong>
+        @foreach ($doctor->clinics as $key => $clinic)
+            {{ $clinic->name }} - {{ $clinic->address }}
+            @if (!$loop->last)
+                ,
+            @endif
+        @endforeach
+    </div>
 
 
     <h2 class="text-xl font-bold mb-4">Related Tests</h2>

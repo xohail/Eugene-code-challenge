@@ -17,6 +17,7 @@ class DoctorController extends Controller
             ->withCount('tests')
             ->orderBy('updated_at', 'desc')
             ->paginate(100);
+//        dd($doctors);
 
         return view('doctors.index', compact('doctors'));
     }
