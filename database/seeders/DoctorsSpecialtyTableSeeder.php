@@ -21,7 +21,7 @@ class DoctorsSpecialtyTableSeeder extends Seeder
             $doctorId = rand(1, $doctorsCount);
             $specialtyId = rand(1, $specialtyCount);
 
-            Specialty::find($specialtyId)->doctors()->attach($doctorId,['created_at' => now(), 'updated_at' => now()]);
+            Specialty::find($specialtyId)->doctors()->attach($doctorId, ['created_at' => now(), 'updated_at' => now()]);
         }
     }
 }
