@@ -47,12 +47,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($doctor->tests()->orderBy('created_at', 'desc')->get() as $test)
+            @foreach($doctor->tests as $test)
                 <tr>
                     <td class="border px-4 py-2">{{ $test->id }}</td>
                     <td class="border px-4 py-2">{{ $test->updated_at->format('Y-m-d') }}</td>
-                    <td class="border px-4 py-2">{{ $test->name }}</td>
                     <td class="border px-4 py-2">{{ $test->description }}</td>
+                    <td class="border px-4 py-2">{{ $test->testName->name }}</td>
                 </tr>
             @endforeach
         </tbody>
