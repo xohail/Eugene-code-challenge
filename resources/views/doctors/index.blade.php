@@ -35,8 +35,11 @@
 
                         @if ($doctor->specialty->isNotEmpty() && count($doctor->specialty) > 0)
                             <td class="border px-4 py-2">
-                                @foreach ($doctor->specialty as $specialty)
+                                @foreach ($doctor->specialty as $key => $specialty)
                                     {{ $specialty->name }}
+                                    @if (!$loop->last)
+                                        ,
+                                    @endif
                                 @endforeach
                             </td>
                         @else
