@@ -22,7 +22,6 @@
                     <th class="border px-4 py-2">Name</th>
                     <th class="border px-4 py-2">Specialty</th>
                     <th class="border px-4 py-2">Clinic Name - Clinic Address</th>
-{{--                    <th class="border px-4 py-2">Clinic Address</th>--}}
                     <th class="border px-4 py-2"># Tests</th>
                     <th class="border px-4 py-2">Actions</th>
                 </tr>
@@ -34,7 +33,6 @@
                         <td class="border px-4 py-2">{{ $doctor->updated_at->format('Y-m-d H:i:s') }}</td>
                         <td class="border px-4 py-2">{{ $doctor->name }}</td>
 
-{{--                        @if ($doctor->specialty)--}}
                         @if ($doctor->specialty->isNotEmpty() && count($doctor->specialty) > 0)
                             <td class="border px-4 py-2">
                                 @foreach ($doctor->specialty as $specialty)
@@ -46,16 +44,18 @@
                         @endif
 
                         @if ($doctor->clinics->isNotEmpty() && count($doctor->clinics) > 0)
+                            @php $isGrey = false; @endphp
                             <td class="border px-4 py-2">
                                 @foreach ($doctor->clinics as $clinic)
-                                    {{ $clinic->name }} - {{ $clinic->address }}
-    {{--                                <td class="border px-4 py-2">{{ $clinic->address }}</td>--}}
+                                    <div style="background-color: {{ $isGrey ? '#f2f2f2' : 'white' }}; padding: 5px;">
+                                        {{ $clinic->name }} - {{ $clinic->address }}
+                                    </div>
+                                    @php $isGrey = !$isGrey; @endphp
                                 @endforeach
                             </td>
                         @else
                             <td class="border px-4 py-2"></td>
                         @endif
-
 
                         <td class="border px-4 py-2">{{ $doctor->tests_count }}</td>
                         <td class="border px-4 py-2">

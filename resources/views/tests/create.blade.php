@@ -12,12 +12,9 @@
             <select name="test_name_id" id="test_name_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 <option value="">Select Test</option>
                 @foreach($tests as $test)
-{{--                    @foreach($doctor->clinics as $clinic)--}}
                     <option value="{{ $test->id }}" {{ old('test_name_id') == $test->id ? 'selected' : '' }}>{{ $test->name }} </option>
-{{--                    @endforeach--}}
                 @endforeach
             </select>
-{{--            <input type="text" name="name" id="name" value="{{ old('name') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">--}}
             @error('name')
                 <p class="text-red-500 mt-1">{{ $message }}</p>
             @enderror
