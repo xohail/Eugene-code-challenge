@@ -10,7 +10,12 @@ return new class () extends Migration {
         Schema::create('clinics', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('address')->default('');
+            $table->string('house')->default('');
+            $table->string('street')->default('')->nullable();
+            $table->string('suburb')->default('')->nullable();
+            $table->integer('postcode')->default('');
+            $table->string('state')->default('');
+            $table->string('geocode')->default('');
             $table->timestamps();
         });
     }

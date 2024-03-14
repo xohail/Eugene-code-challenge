@@ -14,12 +14,27 @@ class ClinicsTableSeeder extends Seeder
      */
     public function run(): void
     {
+        $australianStateAbbreviations = [
+            'NSW',
+            'VIC',
+            'QLD',
+            'WA',
+            'SA',
+            'TAS',
+            'NT',
+            'ACT',
+        ];
         $faker = Faker::create('en_AU');
         $clinics = [];
         for ($i = 0; $i < 100; $i++) {
             $clinics[] = [
                 'name' => $faker->company,
-                'address' => preg_replace('#\n#', ', ', trim($faker->address))
+                'house' => $faker->buildingNumber,
+                'street' => $faker->streetAddress,
+                'suburb' => $faker->city,
+                'postcode' => $faker->postcode,
+                'state' => $faker->randomElement($australianStateAbbreviations),
+                'geocode' => $faker->latitude.','.$faker->longitude
             ];
         }
         $clinics = collect($clinics);
@@ -29,12 +44,12 @@ class ClinicsTableSeeder extends Seeder
 
             // Randomly muddle up the data so it's not obvious which doctor or clinic goes where
             if (rand(1, 10) === 10) {
-                $clinic['name'] = null;
+                $clinic['name'] = $clinic['street'] = $clinic['suburb'] = null;
             }
 
-            if (rand(1, 10) === 10) {
-                $clinic['address'] = null;
-            }
+//            if (rand(1, 10) === 10) {
+//                $clinic['address'] = null;
+//            }
 
             if ($clinic['name'] && rand(0, 1)) {
                 $clinic['name'] = $clinic['name'] . ' ' . ucfirst($faker->word);
@@ -48,25 +63,30 @@ class ClinicsTableSeeder extends Seeder
                 $clinic['name'] = substr($clinic['name'], 0, 10);
             }
 
-            if ($clinic['address'] && rand(0, 1)) {
-                $parts = collect(explode(', ', $clinic['address']));
-                $muddle = $parts->random(2)->implode(' ');
-                if (str_contains($muddle, '/')) {
-                    list($ignore, $muddle) = explode('/', $muddle);
-                }
-
-                if (rand(0, 10) === 10) {
-                    $muddle .= $faker->word;
-                }
-
-                $clinic['address'] = $muddle;
-            }
+//            if ($clinic['address'] && rand(0, 1)) {
+//                $parts = collect(explode(', ', $clinic['address']));
+//                $muddle = $parts->random(2)->implode(' ');
+//                if (str_contains($muddle, '/')) {
+//                    list($ignore, $muddle) = explode('/', $muddle);
+//                }
+//
+//                if (rand(0, 10) === 10) {
+//                    $muddle .= $faker->word;
+//                }
+//
+//                $clinic['address'] = $muddle;
+//            }
 
             $date = $faker->dateTimeThisYear;
 
             $clinic = [
                 'name' => $clinic['name'],
-                'address' => str_replace('\n', ', ', $clinic['address']),
+                'house' => $clinic['house'],
+                'street' => $clinic['street'],
+                'suburb' => $clinic['suburb'],
+                'postcode' => $clinic['postcode'],
+                'state' => $clinic['state'],
+                'geocode' => $clinic['geocode'],
                 'created_at' => $date,
                 'updated_at' => $date
             ];
