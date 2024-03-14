@@ -27,14 +27,16 @@
 
     <div class="mb-4">
         <strong>Clinic Name - Clinic Address:</strong>
-        @foreach ($doctor->clinics as $key => $clinic)
-            {{ $clinic->name }} - {{ $clinic->address }}
-            @if (!$loop->last)
-                ,
-            @endif
-        @endforeach
+        @if ($doctor->clinics->isNotEmpty() && count($doctor->clinics) > 0)
+            @php $isGrey = false; @endphp
+                @foreach ($doctor->clinics as $clinic)
+                    <div style="background-color: {{ $isGrey ? '#f2f2f2' : 'white' }}; padding: 5px;">
+                        {{ $clinic->name }} - {{ $clinic->address }}
+                    </div>
+                    @php $isGrey = !$isGrey; @endphp
+                @endforeach
+        @endif
     </div>
-
 
     <h2 class="text-xl font-bold mb-4">Related Tests</h2>
     <table class="bg-white w-full border-collapse">
