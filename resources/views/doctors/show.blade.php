@@ -31,7 +31,7 @@
             @php $isGrey = false; @endphp
                 @foreach ($doctor->clinics as $clinic)
                     <div style="background-color: {{ $isGrey ? '#f2f2f2' : 'white' }}; padding: 5px;">
-                        {{ $clinic->name }} - {{ $clinic->address }}
+                        @if ($clinic->name) {{ $clinic->name }} -@endif {{ $clinic->house }} {{ $clinic->street }} {{ $clinic->suburb }} {{ $clinic->state }} {{ $clinic->postcode }}
                     </div>
                     @php $isGrey = !$isGrey; @endphp
                 @endforeach

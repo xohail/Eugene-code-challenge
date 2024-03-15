@@ -38,7 +38,7 @@
             <select name="clinics[]" id="clinics" multiple>
                 @foreach ($clinics as $clinic)
                     <option value="{{ $clinic->id }}" {{ $doctor->clinics->contains($clinic->id) ? 'selected' : '' }} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                        {{ $clinic->name }} - {{ $clinic->address }}
+                        @if ($clinic->name) {{ $clinic->name }} -@endif {{ $clinic->house }} {{ $clinic->street }} {{ $clinic->suburb }} {{ $clinic->state }} {{ $clinic->postcode }}
                     </option>
                 @endforeach
             </select>
