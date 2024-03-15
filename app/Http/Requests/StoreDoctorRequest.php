@@ -25,7 +25,12 @@ class StoreDoctorRequest extends FormRequest
             'name' => 'required',
             'specialty' => '',
             'clinic_name' => '',
-            'clinic_address' => '',
+            'clinic_house' => '',
+            'clinic_street' => '',
+            'clinic_suburb' => '',
+            'clinic_postcode' => '',
+            'clinic_state' => '',
+            'clinic_geocode' => '',
         ];
     }
 }

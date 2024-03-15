@@ -30,7 +30,7 @@ class DoctorController extends Controller
     {
         $validatedData = $request->validated();
         $doctor = Doctor::create(['name' => $validatedData['name']]);
-        $clinic = Clinics::create(['name' => $validatedData['clinic_name'], 'address' => $validatedData['clinic_address']]);
+        $clinic = Clinics::create(['name' => $validatedData['clinic_name'], 'house' => $validatedData['clinic_house'], 'street' => $validatedData['clinic_street'], 'suburb' => $validatedData['clinic_suburb'], 'postcode' => $validatedData['clinic_postcode'], 'state' => $validatedData['clinic_state'], 'geocode' => $validatedData['clinic_geocode']]);
         $specialty = Specialty::create(['name' => $validatedData['specialty']]);
 
         $doctor->clinics()->attach($clinic->id, ['created_at' => Carbon::now(), 'updated_at' => Carbon::now()]);
