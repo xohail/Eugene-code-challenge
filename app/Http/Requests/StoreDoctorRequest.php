@@ -30,7 +30,7 @@ class StoreDoctorRequest extends FormRequest
             'clinic_suburb' => '',
             'clinic_postcode' => '',
             'clinic_state' => '',
-            'clinic_address' => '',
+            'clinic_geocode' => '',
         ];
     }
 }
