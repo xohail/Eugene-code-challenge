@@ -12,8 +12,8 @@
 
 1. A doctor can have multiple specialities
 2. A doctor can be working at multiple clinics
-3. Limited or defined number of medical tests can be taken
-4. A single test can be undertaken by one doctor only
+3. Limited or defined number of medical tests (test names) are available
+4. A single test can be undertaken by one doctor at one clinic only
 5. Forms will be filled properly
 
 ## Available operations
@@ -47,7 +47,7 @@ Follow these steps to run the application:
 3. Run `composer install` to install required dependencies.
 4. Run `php artisan serve` to start the Laravel development server.
 5. Run `yarn dev` to run Vite and compile Tailwind resources.
-6. Visit the application in your browser at http://127.0.0.1:8000/doctors or http://127.0.0.1:8000/tests.
+6. Visit the application in your browser at http://127.0.0.1:8000/doctors or http://127.0.0.1:8000/tests or http://127.0.0.1:8000/clinics.
 
 
 ## Routes
