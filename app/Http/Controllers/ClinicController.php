@@ -35,6 +35,6 @@ class ClinicController extends Controller
 
         Clinics::whereIn('id', $ids)->delete();
 
-        return $this->index();
+        return redirect('/clinics');
     }
 }

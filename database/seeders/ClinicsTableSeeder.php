@@ -47,10 +47,6 @@ class ClinicsTableSeeder extends Seeder
                 $clinic['name'] = $clinic['street'] = $clinic['suburb'] = null;
             }
 
-            //            if (rand(1, 10) === 10) {
-            //                $clinic['address'] = null;
-            //            }
-
             if ($clinic['name'] && rand(0, 1)) {
                 $clinic['name'] = $clinic['name'] . ' ' . ucfirst($faker->word);
             }
@@ -62,20 +58,6 @@ class ClinicsTableSeeder extends Seeder
             if ($clinic['name'] && rand(0, 5) === 5) {
                 $clinic['name'] = substr($clinic['name'], 0, 10);
             }
-
-            //            if ($clinic['address'] && rand(0, 1)) {
-            //                $parts = collect(explode(', ', $clinic['address']));
-            //                $muddle = $parts->random(2)->implode(' ');
-            //                if (str_contains($muddle, '/')) {
-            //                    list($ignore, $muddle) = explode('/', $muddle);
-            //                }
-            //
-            //                if (rand(0, 10) === 10) {
-            //                    $muddle .= $faker->word;
-            //                }
-            //
-            //                $clinic['address'] = $muddle;
-            //            }
 
             $date = $faker->dateTimeThisYear;
 
