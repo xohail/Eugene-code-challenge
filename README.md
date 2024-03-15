@@ -19,7 +19,7 @@
 ## Available operations
 
 * **Doctors**
-  * List of doctors with name, specialty, clinic name and clinic address seperate by `-`
+  * List of doctors with name, specialty, clinic name and clinic address seperated by `-`
   * Paginated list with 100 a page
   * View individual doctor, clinics, specialities with related tests done by him/her details
   * Add a doctor
@@ -35,7 +35,10 @@
 
 * **Merge duplicate clinics**
   * Lists name, house and duplicate having the same name and house with comma separated ids
-  * _Merge_ button points all the doctors to first clinic id and remove rest of the duplicate clinics from the database
+  * _Merge_ button refers all the doctors to first clinic id in the clinics_doctor(pivot) table and remove rest of the duplicate clinics from the database
+
+* **Unit tests for Clinics controller**
+* ![](/Users/hanasoft/Desktop/Screenshot 2024-03-15 at 6.46.46 pm.png)
 
 ## Installation
 
@@ -43,11 +46,11 @@ Follow these steps to run the application:
 
 1. Ensure PHP, Composer, and the SQLite extension are installed on your system.
 2. Ensure vite is installed
-2. Clone this repository. __Do not fork it!__
-3. Run `composer install` to install required dependencies.
-4. Run `php artisan serve` to start the Laravel development server.
-5. Run `yarn dev` to run Vite and compile Tailwind resources.
-6. Visit the application in your browser at http://127.0.0.1:8000/doctors or http://127.0.0.1:8000/tests or http://127.0.0.1:8000/clinics.
+3. Clone this repository. __Do not fork it!__
+4. Run `composer install` to install required dependencies.
+5. Run `php artisan serve` to start the Laravel development server.
+6. Run `yarn dev` to run Vite and compile Tailwind resources.
+7. Visit the application in your browser at http://127.0.0.1:8000/doctors or http://127.0.0.1:8000/tests or http://127.0.0.1:8000/clinics.
 
 
 ## Routes
