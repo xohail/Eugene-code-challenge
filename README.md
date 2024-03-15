@@ -38,7 +38,7 @@
   * _Merge_ button refers all the doctors to first clinic id in the clinics_doctor(pivot) table and remove rest of the duplicate clinics from the database
 
 * **Unit tests for Clinics controller**
-* ![](/Users/hanasoft/Desktop/Screenshot 2024-03-15 at 6.46.46 pm.png)
+* For demonstration purpose
 
 ## Installation
 
