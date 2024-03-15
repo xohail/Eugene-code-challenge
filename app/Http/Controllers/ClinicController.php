@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Clinics;
 use Illuminate\Support\Facades\DB;
+
 use function PHPUnit\Framework\countOf;
 
 class ClinicController extends Controller
