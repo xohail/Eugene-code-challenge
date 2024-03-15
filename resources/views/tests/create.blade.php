@@ -15,7 +15,7 @@
                     <option value="{{ $test->id }}" {{ old('test_name_id') == $test->id ? 'selected' : '' }}>{{ $test->name }} </option>
                 @endforeach
             </select>
-            @error('name')
+            @error('test_name_id')
                 <p class="text-red-500 mt-1">{{ $message }}</p>
             @enderror
         </div>

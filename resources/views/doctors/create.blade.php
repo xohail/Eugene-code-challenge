@@ -17,9 +17,14 @@
 
         <div class="mb-4">
             <label for="specialty" class="block mb-2">Specialty</label>
-            <input type="text" name="specialty" id="specialty" value="{{ old('specialty') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <select name="specialty[]" id="specialty" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" multiple>
+                <option value="">Select Specialty</option>
+                @foreach($specialties as $specialty)
+                    <option value="{{ $specialty->id }}" {{ old('test_name_id') == $specialty->id ? 'selected' : '' }}>{{ $specialty->name }} </option>
+                @endforeach
+            </select>
             @error('specialty')
-                <p class="text-red-500 mt-1">{{ $message }}</p>
+            <p class="text-red-500 mt-1">{{ $message }}</p>
             @enderror
         </div>
 
