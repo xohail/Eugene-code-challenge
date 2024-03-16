@@ -37,8 +37,12 @@
   * Lists name, house and duplicate having the same name and house with comma separated ids
   * _Merge_ button refers all the doctors to first clinic id in the clinics_doctor(pivot) table and remove rest of the duplicate clinics from the database
 
-* **Unit tests for Clinics controller**
-* For demonstration purpose
+* **Merge duplicate doctors**
+    * Lists name, duplicate count having the same name with comma separated ids
+    * _Merge_ button refers all the clinics to first doctor id in the clinics_doctor(pivot) table and remove rest of the duplicate doctors from the database
+
+* **Unit tests**
+  * For demonstration purpose
 
 ## Installation
 
@@ -50,11 +54,10 @@ Follow these steps to run the application:
 4. Run `composer install` to install required dependencies.
 5. Run `php artisan serve` to start the Laravel development server.
 6. Run `yarn dev` to run Vite and compile Tailwind resources.
-7. Visit the application in your browser at http://127.0.0.1:8000/doctors or http://127.0.0.1:8000/tests or http://127.0.0.1:8000/clinics.
-
 
 ## Routes
 
 1. http://127.0.0.1:8000/doctors
 1. http://127.0.0.1:8000/tests
-1. http://127.0.0.1:8000/clinics
+1. http://127.0.0.1:8000/duplicates/doctors
+2. http://127.0.0.1:8000/duplicates/clinics

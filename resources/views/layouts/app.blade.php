@@ -15,7 +15,10 @@
 <body class="bg-gray-100">
     <header class="bg-blue-500 py-4">
         <div class="container mx-auto px-4">
-            <a href="/" class="text-white text-2xl font-semibold">{{ config('app.name', 'Eugene') }}</a>
+            <a href="/" class="text-white text-2xl font-semibold pr-20">{{ config('app.name', 'Eugene') }}</a>
+            <a href="/tests" class="text-white text-2xl font-semibold pr-20">Tests</a>
+            <a href="/duplicates/doctors" class="text-white text-2xl font-semibold pr-20">Duplicate Doctors</a>
+            <a href="/duplicates/clinics" class="text-white text-2xl font-semibold">Duplicate Clinics</a>
         </div>
     </header>
 

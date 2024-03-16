@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\Duplicates\ClinicsMergeController;
+use App\Http\Controllers\Duplicates\DoctorsMergeController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect()->route('doctors.index');
-});
-
-Route::post('/clinics/merge', [ClinicController::class, 'clinics_merge'])->name('clinics.clinics_merge');
+Route::resource('duplicates/clinics', ClinicsMergeController::class);
+Route::resource('duplicates/doctors', DoctorsMergeController::class);
+Route::post('duplicates/clinics/merge', [ClinicsMergeController::class, 'clinics_merge'])->name('clinics.clinics_merge');
+Route::post('duplicates/doctors/merge', [DoctorsMergeController::class, 'doctors_merge'])->name('duplicates.doctors_merge');
 
 Route::resource('doctors', DoctorController::class);
 Route::resource('tests', TestController::class);
-Route::resource('clinics', ClinicController::class);
+
+Route::get('/', 'App\Http\Controllers\DoctorController@index');

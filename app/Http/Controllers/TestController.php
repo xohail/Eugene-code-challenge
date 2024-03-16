@@ -46,6 +46,7 @@ class TestController extends Controller
         [$doctorId, $clinicId] = explode('_', $referringDoctorId);
         $validatedData['referring_doctor_id'] = $doctorId;
         $validatedData['referring_doctor_clinic_id'] = $clinicId;
+        //        dd($validatedData);
 
         Test::create($validatedData);
 
