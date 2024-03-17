@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ClinicsFactory extends Factory
 {
-    public static $australianStateAbbreviations = [
+    public static array $australianStateAbbreviations = [
     'NSW',
     'VIC',
     'QLD',
@@ -33,7 +33,7 @@ class ClinicsFactory extends Factory
             'street' => fake()->streetAddress(),
             'suburb' => fake()->city(),
             'postcode' => fake()->postcode(),
-            'state' => fake()->randomElement(self::$australianStateAbbreviations), // password
+            'state' => fake()->randomElement(self::$australianStateAbbreviations),
             'geocode' => fake()->latitude().','.fake()->longitude(),
         ];
     }

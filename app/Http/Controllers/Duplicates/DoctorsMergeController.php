@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class DoctorsMergeController extends Controller
 {
-    protected $mergeService;
+    protected DuplicateMergeService $mergeService;
 
     public function __construct(DuplicateMergeService $mergeService)
     {
@@ -18,7 +18,12 @@ class DoctorsMergeController extends Controller
 
     public function index()
     {
-        $potentialDuplicates = Doctor::selectRaw('GROUP_CONCAT(id) AS duplicate_ids, name, COUNT(*) AS duplicates_count')->whereNotNull('name')->groupBy('name')->havingRaw('COUNT(*) > 1')->get();
+        $potentialDuplicates = Doctor::selectRaw('GROUP_CONCAT(id) AS duplicate_ids, name, COUNT(*) AS duplicates_count')
+            ->whereNotNull('name')
+            ->groupBy('name')
+            ->havingRaw('COUNT(*) > 1')
+            ->get()
+        ;
 
         return view('doctors.duplicates.potential_duplicates', compact('potentialDuplicates'));
     }

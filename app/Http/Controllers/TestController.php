@@ -12,7 +12,9 @@ class TestController extends Controller
 {
     public function index()
     {
-        $tests = Test::with(['referringDoctor', 'testName', 'referringDoctorClinic'])->orderBy('updated_at', 'desc')->paginate(100);
+        $tests = Test::with(['referringDoctor', 'testName', 'referringDoctorClinic'])
+            ->orderBy('updated_at', 'desc')
+            ->paginate(100);
 
         return view('tests.index', compact('tests'));
     }
@@ -42,11 +44,7 @@ class TestController extends Controller
                 },
             ],
         ]);
-        $referringDoctorId = $validatedData['referring_doctor_id'];
-        [$doctorId, $clinicId] = explode('_', $referringDoctorId);
-        $validatedData['referring_doctor_id'] = $doctorId;
-        $validatedData['referring_doctor_clinic_id'] = $clinicId;
-        //        dd($validatedData);
+        [$validatedData['referring_doctor_id'], $validatedData['referring_doctor_clinic_id']] = explode('_', $validatedData['referring_doctor_id']);
 
         Test::create($validatedData);
 
