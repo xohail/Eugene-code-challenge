@@ -16,6 +16,9 @@
 4. A single test can be undertaken by one doctor at one clinic only
 5. Forms will be filled properly
 
+## ERD
+![Image Alt Text](DB_diagram.png)
+
 ## Available operations
 
 * **Doctors**
@@ -42,7 +45,8 @@
     * _Merge_ button refers all the clinics to first doctor id in the clinics_doctor(pivot) table and remove rest of the duplicate doctors from the database
 
 * **Unit tests**
-  * For demonstration purpose
+  * ![Image Alt Text](Unit_tests_ss.png)
+
 
 ## Installation
 
@@ -50,7 +54,7 @@ Follow these steps to run the application:
 
 1. Ensure PHP, Composer, and the SQLite extension are installed on your system.
 2. Ensure vite is installed
-3. Clone this repository. __Do not fork it!__
+3. Clone this repository.
 4. Run `composer install` to install required dependencies.
 5. Run `php artisan serve` to start the Laravel development server.
 6. Run `yarn dev` to run Vite and compile Tailwind resources.
