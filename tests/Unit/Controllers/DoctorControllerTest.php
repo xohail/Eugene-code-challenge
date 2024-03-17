@@ -1,17 +1,14 @@
 <?php
 
-namespace Tests\Http\Controllers;
+namespace Tests\Unit\Controllers;
 
 use App\Models\Clinics;
 use App\Models\Doctor;
 use App\Models\Specialty;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class DoctorControllerTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function test_index_method_returns_view_with_doctors()
     {
         $response = $this->get(route('doctors.index'));

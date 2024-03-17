@@ -3,11 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Clinics;
-use App\Models\Test;
 use App\Models\Doctor;
+use App\Models\Test;
 use App\Models\TestName;
-use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 
 class TestsTableSeeder extends Seeder
 {

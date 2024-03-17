@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Clinics;
-use App\Models\Doctor;
 use App\Http\Requests\StoreDoctorRequest;
 use App\Http\Requests\UpdateDoctorRequest;
+use App\Models\Clinics;
+use App\Models\Doctor;
 use App\Models\Specialty;
 use Illuminate\Support\Carbon;
 

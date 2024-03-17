@@ -23,7 +23,7 @@ class DoctorsMergeController extends Controller
         return view('doctors.duplicates.potential_duplicates', compact('potentialDuplicates'));
     }
 
-    public function doctors_merge(Request $request)
+    public function doctorsMerge(Request $request)
     {
         $duplicateIds = explode(',', $request->input('duplicate_ids'));
         $replacementId = array_shift($duplicateIds);

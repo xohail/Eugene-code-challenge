@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Clinics;
 use Faker\Factory as Faker;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ClinicsTableSeeder extends Seeder

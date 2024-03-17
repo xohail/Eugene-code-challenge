@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('duplicates/clinics', ClinicsMergeController::class);
 Route::resource('duplicates/doctors', DoctorsMergeController::class);
-Route::post('duplicates/clinics/merge', [ClinicsMergeController::class, 'clinics_merge'])->name('clinics.clinics_merge');
-Route::post('duplicates/doctors/merge', [DoctorsMergeController::class, 'doctors_merge'])->name('duplicates.doctors_merge');
+Route::post('duplicates/clinics/merge', [ClinicsMergeController::class, 'clinicsMerge'])->name('clinics.clinics_merge');
+Route::post('duplicates/doctors/merge', [DoctorsMergeController::class, 'doctorsMerge'])->name('duplicates.doctors_merge');
 
 Route::resource('doctors', DoctorController::class);
 Route::resource('tests', TestController::class);

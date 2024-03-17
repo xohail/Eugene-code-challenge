@@ -22,11 +22,10 @@ class ClinicsMergeController extends Controller
         return view('clinics.duplicates.potential_duplicates', compact('potentialDuplicates'));
     }
 
-    public function clinics_merge(Request $request)
+    public function clinicsMerge(Request $request)
     {
         $duplicateIds = explode(',', $request->input('duplicate_ids'));
         $replacementId = array_shift($duplicateIds);
-
         $this->mergeService->mergeClinics($duplicateIds, $replacementId);
 
         return redirect('/duplicates/clinics');
