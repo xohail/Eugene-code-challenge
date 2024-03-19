@@ -19,7 +19,7 @@ class DoctorsMergeController extends Controller
     public function index()
     {
         $potentialDuplicates = Doctor::selectRaw('GROUP_CONCAT(id) AS duplicate_ids, name, COUNT(*) AS duplicates_count')
-            ->whereNotNull('name')
+//            ->whereNotNull('name')
             ->groupBy('name')
             ->havingRaw('COUNT(*) > 1')
             ->get()

@@ -20,7 +20,7 @@ class ClinicsMergeController extends Controller
     {
         $potentialDuplicates = Clinics::selectRaw('GROUP_CONCAT(id) AS duplicate_ids, name, house, COUNT(*) AS duplicates_count')
             ->whereNotNull('name')
-            ->whereNotNull('house')
+//            ->whereNotNull('house')
             ->groupBy('name', 'house')
             ->havingRaw('COUNT(*) > 1')
             ->get()
