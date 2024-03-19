@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Services\Utility;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,17 +10,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ClinicsFactory extends Factory
 {
-    public static array $australianStateAbbreviations = [
-    'NSW',
-    'VIC',
-    'QLD',
-    'WA',
-    'SA',
-    'TAS',
-    'NT',
-    'ACT',
-    ];
-
     /**
      * Define the model's default state.
      *
@@ -33,7 +23,7 @@ class ClinicsFactory extends Factory
             'street' => fake()->streetAddress(),
             'suburb' => fake()->city(),
             'postcode' => fake()->postcode(),
-            'state' => fake()->randomElement(self::$australianStateAbbreviations),
+            'state' => fake()->randomElement(Utility::$australianStateAbbreviations),
             'geocode' => fake()->latitude().','.fake()->longitude(),
         ];
     }

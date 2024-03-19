@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Clinics;
+use App\Services\Utility;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
@@ -13,16 +14,6 @@ class ClinicsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $australianStateAbbreviations = [
-            'NSW',
-            'VIC',
-            'QLD',
-            'WA',
-            'SA',
-            'TAS',
-            'NT',
-            'ACT',
-        ];
         $faker = Faker::create('en_AU');
         $clinics = [];
         for ($i = 0; $i < 100; $i++) {
@@ -32,7 +23,7 @@ class ClinicsTableSeeder extends Seeder
                 'street' => $faker->streetAddress,
                 'suburb' => $faker->city,
                 'postcode' => $faker->postcode,
-                'state' => $faker->randomElement($australianStateAbbreviations),
+                'state' => $faker->randomElement(Utility::$australianStateAbbreviations),
                 'geocode' => $faker->latitude.','.$faker->longitude
             ];
         }
