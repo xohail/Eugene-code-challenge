@@ -29,7 +29,7 @@
                                         <td class="border px-4 py-2">{{ $duplicate->duplicates_count }}</td>
                                         <td class="border px-4 py-2">{{ $duplicate->duplicate_ids }}</td>
                                         <td class="border px-4 py-2">
-                                            <form action="{{ route('clinics.clinics_merge') }}" method="POST">
+                                            <form action="{{ route('duplicates.clinics_merge') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="duplicate_ids" value="{{ $duplicate->duplicate_ids }}">
                                                 <button type="submit" class="btn btn-primary">Merge</button>
